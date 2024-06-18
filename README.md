@@ -3,7 +3,7 @@
 - [x] Init
 - [x] Article list page
 - [x] Lightweight flask api (data in memory)
-- [ ] Article creation page
+- [x] Article creation page
 - [ ] Add style
 - [ ] Refactor
 - [ ] Add DB

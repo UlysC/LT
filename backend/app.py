@@ -8,7 +8,7 @@ app = Flask(__name__)
 CORS(app)
 api = Api(app)
 
-
+defaultImageSrc = 'https://picsum.photos/200/200'
 dataBaseInMemory = [
     {
         'id':1,
@@ -16,7 +16,7 @@ dataBaseInMemory = [
         'content': 'lorem ipsum dolor sit amet',
         'image': {
             'alt': 'image 1',
-            'src': 'https://picsum.photos/200/300'
+            'src': defaultImageSrc,
         },
         'createdAt': datetime.today().strftime('%Y-%m-%d')
        },
@@ -26,7 +26,7 @@ dataBaseInMemory = [
         'content': 'lorem ipsum dolor sit amet sit amet con laoreet et al et al et', 
         'image': {
             'alt': 'image 2',
-            'src': 'https://picsum.photos/200/300'
+            'src': defaultImageSrc,
         },
         'createdAt': datetime.today().strftime('%Y-%m-%d')
        },
@@ -36,7 +36,7 @@ dataBaseInMemory = [
         'content': 'lorem ipsum dolor sit amet sit amet con la reb Universal Rights rights', 
         'image': {
             'alt': 'image 3',
-            'src': 'https://picsum.photos/200/300'
+            'src': defaultImageSrc,
         },
         'createdAt': datetime.today().strftime('%Y-%m-%d')
        },
@@ -48,18 +48,18 @@ class Articles(Resource):
     
     def post(self):
         data = request.json
-        itemId = len(dataBaseInMemory.keys()) + 1
-        dataBaseInMemory[itemId] = {
-        'id':itemId,
-        'title': data.title,
-        'content': data.content,
+        itemId = len(dataBaseInMemory) + 1
+        dataBaseInMemory.append({
+        'id': itemId,
+        'title': data['title'],
+        'content': data['content'],
         'image': {
-            'alt': data.image.alt,
-            'src': data.image.src
+            'alt': data['image'].get('alt') or '',
+            'src': data['image']['src']
         },
         'createdAt': datetime.today().strftime('%Y-%m-%d')
-       }
-        return dataBaseInMemory
+       })
+        return dataBaseInMemory[itemId -1]
     
 class Article(Resource): 
     def get(self, pk):

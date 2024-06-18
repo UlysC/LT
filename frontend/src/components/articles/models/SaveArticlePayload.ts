@@ -1,3 +1,8 @@
-import { Article } from './Article';
-
-export type SaveArticlePayload = Omit<Article, 'id' | 'createdAt'>
+export type SaveArticlePayload = {
+  title?: string
+  content?: string
+  image?: {
+    src?: string
+    alt?: string
+  }
+}
