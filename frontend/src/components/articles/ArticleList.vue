@@ -1,17 +1,28 @@
 <template>
   <div class="q-pa-md">
     <q-list bordered separator>
-      <q-item v-for="article of articles" :key="article.id" clickable v-ripple @click="onArticleClick(article.id)">
-        <q-item-section title wrap>
-          <q-item-label>
+      <q-item
+        v-for="article of articles"
+        :key="article.id"
+        clickable
+        v-ripple
+        @click="onArticleClick(article.id)"
+        :style="{ height: '100px' }"
+      >
+        <q-item-section>
+          <q-img :src="article.image.src" :alt="article.image.alt" height="100%" class="border" />
+        </q-item-section>
+        <q-item-section :style="{ textWrap: 'balance' }">
+          <q-item-label class="text-subtitle2">
             {{ article.title }}
           </q-item-label>
-        </q-item-section>
-        <q-item-section thumbnail>
-          <img :src="article.image.src" :alt="article.image.alt" />
-        </q-item-section>
-        <q-item-section>{{ article.content }}</q-item-section>
-        <q-item-section top>{{ article.createdAt }}</q-item-section>
+          <q-item-label class="text-body2" lines="2">
+            {{ article.content }}
+          </q-item-label></q-item-section
+        >
+        <q-item-section side top>
+          <span class="text-caption">{{ article.createdAt }}</span></q-item-section
+        >
       </q-item>
     </q-list>
     <create-article-btn />

@@ -5,9 +5,11 @@
 - [x] Lightweight flask api (data in memory)
 - [x] Article creation page
 - [ ] Add style
-- [ ] Refactor
+- [ ] Refactor frontend
 - [ ] Add DB
-- [ ] Refactor
+- [ ] implement tests
+- [ ] Image upload + S3
+- [ ] Refactor backend
 - [ ] Dockerize
 - [ ] deploy ?
 

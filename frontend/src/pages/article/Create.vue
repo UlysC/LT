@@ -1,7 +1,7 @@
 <template>
-  <div class="q-pa-md fullscreen">
-    <q-btn to="/"> <q-icon  name="arrow_back"/></q-btn>
-    <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
+  <div class="q-pa-md">
+    <q-btn to="/" class="fixed-top-left q-ma-md"> <q-icon  name="arrow_back"/></q-btn>
+    <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-lg q-mt-xl">
       <q-input
         filled
         v-model="article.title"
@@ -13,6 +13,7 @@
 
       <q-input
         filled
+        type="textarea"
         v-model="article.content"
         label="Content *"
         hint="A brief description"

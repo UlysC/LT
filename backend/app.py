@@ -1,46 +1,13 @@
 from flask import Flask, request, jsonify
 from flask_restful import Resource, Api
-from datetime import datetime
 from flask_cors import CORS
-
+from dbMock import dataBaseInMemory
 
 app = Flask(__name__)
 CORS(app)
 api = Api(app)
 
-defaultImageSrc = 'https://picsum.photos/200/200'
-dataBaseInMemory = [
-    {
-        'id':1,
-        'title': 'Article 1',
-        'content': 'lorem ipsum dolor sit amet',
-        'image': {
-            'alt': 'image 1',
-            'src': defaultImageSrc,
-        },
-        'createdAt': datetime.today().strftime('%Y-%m-%d')
-       },
-    {
-        'id':2,
-        'title': 'Article 2',
-        'content': 'lorem ipsum dolor sit amet sit amet con laoreet et al et al et', 
-        'image': {
-            'alt': 'image 2',
-            'src': defaultImageSrc,
-        },
-        'createdAt': datetime.today().strftime('%Y-%m-%d')
-       },
-    {
-        'id':3,
-        'title': 'Article 3',
-        'content': 'lorem ipsum dolor sit amet sit amet con la reb Universal Rights rights', 
-        'image': {
-            'alt': 'image 3',
-            'src': defaultImageSrc,
-        },
-        'createdAt': datetime.today().strftime('%Y-%m-%d')
-       },
-]
+
 
 class Articles(Resource):
     def get(self): 
