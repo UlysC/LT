@@ -7,14 +7,11 @@
 
 <script setup lang="ts">
 import ArticleList from 'components/articles/ArticleList.vue'
-import { Article } from 'src/components/articles/models/Article'
-import { ArticleService } from 'src/services/articles.service'
-import { ref } from 'vue'
+import { useArticleStore } from 'src/stores/articles'
 
 defineOptions({
   name: 'ArticleListPage',
 })
-
-const articles = ref<Article[]>()
-articles.value = await ArticleService.getAll()
+await useArticleStore().setArticles()
+const { articles } = useArticleStore()
 </script>

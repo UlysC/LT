@@ -10,4 +10,8 @@ export class ArticleService {
   public static async saveArticle(article: SaveArticlePayload): Promise<AxiosResponse<Article>> {
     return axios.post('http://127.0.0.1:5000/articles', article)
   }
+
+  public static async getOneById(id: number): Promise<Article> {
+    return (await axios.get(`http://127.0.0.1:5000/article/${id}`)).data || null
+  }
 }

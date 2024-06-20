@@ -1,6 +1,6 @@
 <template>
   <div class="q-pa-md">
-    <q-btn to="/" class="fixed-top-left q-ma-md"> <q-icon  name="arrow_back"/></q-btn>
+    <back-to-home-btn/>
     <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-lg q-mt-xl">
       <q-input
         filled
@@ -48,6 +48,7 @@ import { SaveArticlePayload } from 'src/components/articles/models/SaveArticlePa
 import { ArticleService } from 'src/services/articles.service'
 import { isUrl } from 'src/utils'
 import { ref } from 'vue'
+import BackToHomeBtn from 'src/components/articles/BackToHomeBtn.vue'
 
 defineOptions({
   name: 'CreateArticlePage',

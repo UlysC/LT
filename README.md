@@ -4,7 +4,7 @@
 - [x] Article list page
 - [x] Lightweight flask api (data in memory)
 - [x] Article creation page
-- [ ] Add style
+- [x] Add style
 - [ ] Refactor frontend
 - [ ] Add DB
 - [ ] implement tests
