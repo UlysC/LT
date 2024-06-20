@@ -6,6 +6,7 @@ from controllers.ArticleControllers import Articles, Article
 app = Flask(__name__)
 CORS(app)
 api = Api(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///article.db'
     
 api.add_resource(Articles, '/articles')
 api.add_resource(Article, '/article/<int:pk>')

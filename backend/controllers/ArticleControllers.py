@@ -2,10 +2,12 @@ from flask_restful import Resource
 from dbMock import dataBaseInMemory
 from flask import request
 from datetime import datetime
+from models import articleModel
 
 class Articles(Resource):
     def get(self): 
-        return dataBaseInMemory
+        articles = articleModel.Article.query.all()
+        return articles
     
     def post(self):
         data = request.json
